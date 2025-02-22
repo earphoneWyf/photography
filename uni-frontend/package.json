@@ -1,0 +1,32 @@
+{
+  "name": "uni-preset-vue",
+  "version": "0.0.0",
+  "scripts": {
+    "dev:mp-weixin": "uni -p mp-weixin",
+    "build:mp-weixin": "uni build -p mp-weixin"
+  },
+  "dependencies": {
+    "@dcloudio/uni-app": "3.0.0-4040520250104002",
+    "@dcloudio/uni-mp-weixin": "3.0.0-4040520250104002",
+    "@vant/weapp": "^1.11.7",
+    "axios": "^1.7.9",
+    "axios-adapter-uniapp": "^0.1.4",
+    "dayjs": "^1.11.13",
+    "path": "^0.12.7",
+    "pinia": "^3.0.0",
+    "pinia-plugin-persistedstate": "^4.2.0",
+    "uniapp-router-next": "^1.2.7",
+    "uview-plus": "^3.3.68",
+    "vue": "^3.5.11",
+    "vue-i18n": "^9.1.9"
+  },
+  "devDependencies": {
+    "@dcloudio/types": "^3.4.8",
+    "@dcloudio/uni-components": "3.0.0-4040520250104002",
+    "@dcloudio/vite-plugin-uni": "3.0.0-4040520250104002",
+    "@vue/runtime-core": "^3.4.21",
+    "sass": "1.63.2",
+    "sass-loader": "10.4.1",
+    "vite": "5.2.8"
+  }
+}
