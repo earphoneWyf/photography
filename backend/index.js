@@ -59,6 +59,7 @@ const sampleRouter = require("./router/sample");
 const adminRouter = require("./router/admin");
 const carouselRouter = require("./router/carousel");
 const informationRouter = require("./router/information");
+const reservationRouter = require("./router/reservation");
 
 app.use("/user", userRouter);
 app.use("/upload", uploadRouter);
@@ -67,6 +68,7 @@ app.use("/sample", sampleRouter);
 app.use("/admin", adminRouter);
 app.use("/carousel", carouselRouter);
 app.use("/information", informationRouter);
+app.use("/reservation", reservationRouter);
 
 // 错误中间件  必须放在路由后
 app.use((err, req, res, next) => {
