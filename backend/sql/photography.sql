@@ -11,7 +11,7 @@
  Target Server Version : 80016 (8.0.16)
  File Encoding         : 65001
 
- Date: 22/02/2025 15:03:07
+ Date: 23/02/2025 20:56:36
 */
 
 SET NAMES utf8mb4;
@@ -85,6 +85,28 @@ INSERT INTO `information` VALUES (8, '《汉服古风约拍，展现东方韵味
 INSERT INTO `information` VALUES (9, '《亲子温馨约拍，记录家庭温暖》', '亲子时光总是那么温馨而珍贵。<br>现开启亲子温馨约拍服务。<br>摄影师善于捕捉亲子间的互动瞬间，用镜头记录下家庭的温暖。<br>无论是在家里、公园还是游乐场，都能为您拍摄出充满爱的照片。<br>快来约拍，让这份温馨永远留存。', 1, '2025-02-21 05:36:07');
 INSERT INTO `information` VALUES (10, '《宠物可爱约拍，萌趣瞬间不容错过》', '可爱的宠物是生活中的小天使。<br>我们提供宠物可爱约拍服务。<br>摄影师会用耐心和技巧，捕捉宠物们的萌趣瞬间。<br>无论是活泼的小狗，还是慵懒的小猫，都能成为镜头下的明星。<br>带着您的宠物来约拍，留下它们可爱的模样。', 1, '2025-02-21 05:36:21');
 INSERT INTO `information` VALUES (11, '《工业风约拍，诠释个性魅力》', '工业风的建筑和环境，充满了个性和时尚感。<br>现在推出工业风约拍活动。<br>摄影师会利用工业元素，为您拍摄出具有独特风格的照片。<br>您可以展现出自己的个性魅力，在工业风的背景下，成为最耀眼的存在。<br>快来参与工业风约拍，诠释属于您的个性。', 0, '2025-02-21 05:36:35');
+
+-- ----------------------------
+-- Table structure for reservations
+-- ----------------------------
+DROP TABLE IF EXISTS `reservations`;
+CREATE TABLE `reservations`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `initiator` int(11) NOT NULL,
+  `receiver` int(11) NOT NULL,
+  `is_agreed` tinyint(4) NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of reservations
+-- ----------------------------
+INSERT INTO `reservations` VALUES (2, '1. 预约明天中午12点海边拍摄<br>2. 准备好服装', 19, 14, 1, '2025-02-23 15:08:27', '2025-02-23 20:50:48');
+INSERT INTO `reservations` VALUES (3, '1. 明天森林公园拍摄<br>2. 准备好长焦', 19, 13, 0, '2025-02-23 16:42:34', '2025-02-23 19:27:56');
+INSERT INTO `reservations` VALUES (5, '1. 需要人民公园摄影<br>2. 模特需要有以往的经验', 14, 19, 1, '2025-02-23 20:49:57', '2025-02-23 20:53:00');
 
 -- ----------------------------
 -- Table structure for sample_photos
@@ -166,7 +188,7 @@ CREATE TABLE `users`  (
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (13, '张三', '123456', '模特', '13286495217', 0, '/images/1740151736221-Te2voBZ0broA67cb88df59b7d96e500ca5f5d27923fd.png', '2025-02-21 23:28:58');
-INSERT INTO `users` VALUES (14, '李四', '123456', '摄影师', '15864795621', 0, '/images/1740151777715-siCzSMFVXFKM97a1dac5475818ff756f0b7c97a0eaf2.png', '2025-02-21 23:29:40');
+INSERT INTO `users` VALUES (14, '李四', '123456', '摄影师', '15864795621', 1, '/images/1740151777715-siCzSMFVXFKM97a1dac5475818ff756f0b7c97a0eaf2.png', '2025-02-21 23:29:40');
 INSERT INTO `users` VALUES (15, '王五', '123456', '模特', '13287645873', 0, '/images/1740151811206-PGLaakladuKhccac35093a3d528ade561e1aaa4fea94.png', '2025-02-21 23:30:12');
 INSERT INTO `users` VALUES (16, '陈其', '111111', '模特', '15169744689', 0, '/images/1740151874728-ptQ7lh7xCha9565812ea28708d1b11aa8e35dd45224d.png', '2025-02-21 23:31:17');
 INSERT INTO `users` VALUES (17, '黄巴', '123456', '摄影师', '13806475214', 0, '/images/1740151930065-gwnwSGg8GLyNa98f19293ca2a9332bc8e76cdbc17ca9.png', '2025-02-21 23:32:12');
