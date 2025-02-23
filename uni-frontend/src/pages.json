@@ -127,7 +127,8 @@
       "AppointmentEditor": "/components/AppointmentEditor/index",
       "SampleCollection": "/components/SampleCollection/index",
       "UserDetail": "/components/UserDetail/index",
-      "SampleEditor": "/components/SampleEditor/index"
+      "SampleEditor": "/components/SampleEditor/index",
+      "ReservationSection": "/components/ReservationSection/index"
     }
   }
 }

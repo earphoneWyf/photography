@@ -1,6 +1,10 @@
 <template>
   <view class="mine">
-    <UserDetail :showEditButton="true" :userInfo="userStore.userInfo" />
+    <UserDetail
+      :showEditButton="true"
+      :showReservationButton="false"
+      :userInfo="userStore.userInfo"
+    />
   </view>
 </template>
 
@@ -46,6 +50,12 @@ onShow(() => {
       width: 240rpx;
       margin: 0;
       box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+    }
+
+    .u-textarea {
+      width: 100%;
+      height: 300rpx;
+      border: 2rpx solid #bbbaba;
     }
   }
 }

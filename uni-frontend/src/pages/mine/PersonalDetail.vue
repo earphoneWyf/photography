@@ -1,6 +1,10 @@
 <template>
   <view class="personal-detail">
-    <UserDetail :showEditButton="false" :userInfo="publisher" />
+    <UserDetail
+      :showEditButton="false"
+      :showReservationButton="true"
+      :userInfo="publisher"
+    />
   </view>
 </template>
 
@@ -21,5 +25,13 @@ onLoad((options) => {
 <style scoped lang="scss">
 .personal-detail {
   height: 100vh;
+
+  ::v-deep .user-detail {
+    .u-textarea {
+      width: 100%;
+      height: 300rpx;
+      border: 2rpx solid #bbbaba;
+    }
+  }
 }
 </style>
