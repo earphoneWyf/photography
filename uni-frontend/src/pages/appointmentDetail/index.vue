@@ -5,6 +5,7 @@
       <view class="navbar-left">
         <up-avatar
           :src="getAvatarUrl(appointment.publisher.avatar)"
+          @click="handleContact"
           size="40"
         ></up-avatar>
         <view class="user-name">{{ appointment.publisher.username }}</view>

@@ -99,11 +99,37 @@ const updateFileList = (newList) => {
 };
 
 const handleRegister = async () => {
-  form.avatar = fileList.value[0].url;
+  // 新增验证逻辑
+  if (!form.username?.trim()) {
+    uni.showToast({ title: "用户名不能为空", icon: "none" });
+    return;
+  }
+
+  if (!form.password) {
+    uni.showToast({ title: "密码不能为空", icon: "none" });
+    return;
+  }
+
   if (form.password !== form.confirmPassword) {
     uni.showToast({ title: "两次输入的密码不一致", icon: "none" });
     return;
   }
+
+  if (!form.role) {
+    uni.showToast({ title: "请选择用户角色", icon: "none" });
+    return;
+  }
+
+  if (!form.contact?.trim()) {
+    uni.showToast({ title: "联系方式不能为空", icon: "none" });
+    return;
+  }
+
+  
+  if (fileList && fileList.value && fileList.value.length > 0) {
+    form.avatar = fileList.value[0].url;
+  }
+
   if (!form.avatar) {
     uni.showToast({ title: "请选择用户头像", icon: "none" });
     return;

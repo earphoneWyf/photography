@@ -94,6 +94,32 @@ const onShootingTimeConfirm = () => {
 };
 
 const submitForm = async () => {
+  // 新增校验逻辑
+  if (!form.target) {
+    uni.showToast({ title: "请选择约拍对象", icon: "none" });
+    return;
+  }
+
+  if (!form.shootingTime) {
+    uni.showToast({ title: "请选择拍摄时间", icon: "none" });
+    return;
+  }
+
+  if (!form.location.trim()) {
+    uni.showToast({ title: "请填写拍摄地点", icon: "none" });
+    return;
+  }
+
+  if (Number(form.cost) < 0) {
+    uni.showToast({ title: "拍摄费用需大于或等于0", icon: "none" });
+    return;
+  }
+
+  if (!form.requirement.trim()) {
+    uni.showToast({ title: "请填写拍摄要求", icon: "none" });
+    return;
+  }
+
   const userStore = useUserStore();
   const { target, shootingTime, location, cost, requirement } = form;
 

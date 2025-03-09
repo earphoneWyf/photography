@@ -35,7 +35,10 @@
         </up-radio-group>
       </up-form-item>
       <up-form-item label="联系方式" prop="contact">
-        <up-input v-model="form.contact" placeholder="请输入联系方式"></up-input>
+        <up-input
+          v-model="form.contact"
+          placeholder="请输入联系方式"
+        ></up-input>
       </up-form-item>
       <up-form-item label="用户头像">
         <ImageUpload
@@ -104,6 +107,32 @@ const updateFileList = (newList) => {
 
 // 提交修改
 const handleSubmit = async () => {
+  // 新增验证逻辑
+  if (!form.value.username?.trim()) {
+    uni.showToast({ title: "用户名不能为空", icon: "none" });
+    return;
+  }
+
+  if (!form.value.password) {
+    uni.showToast({ title: "密码不能为空", icon: "none" });
+    return;
+  }
+
+  if (form.value.password !== form.value.confirmPassword) {
+    uni.showToast({ title: "两次输入密码不一致", icon: "none" });
+    return;
+  }
+
+  if (!form.value.role) {
+    uni.showToast({ title: "请选择用户角色", icon: "none" });
+    return;
+  }
+
+  if (!form.value.contact?.trim()) {
+    uni.showToast({ title: "联系方式不能为空", icon: "none" });
+    return;
+  }
+
   form.value.avatar = fileList.value[0].url;
 
   if (!form.value.avatar) {

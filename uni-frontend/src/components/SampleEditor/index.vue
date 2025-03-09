@@ -67,6 +67,22 @@ const updateFileList = (newList) => {
 };
 
 const submitSample = async () => {
+  // 新增验证逻辑
+  if (!sampleForm.title.trim()) {
+    uni.showToast({ title: "请填写样片标题", icon: "none" });
+    return;
+  }
+
+  if (!sampleForm.description.trim()) {
+    uni.showToast({ title: "请填写样片描述", icon: "none" });
+    return;
+  }
+
+  if (sampleForm.images.length === 0) {
+    uni.showToast({ title: "请上传至少一张样片图片", icon: "none" });
+    return;
+  }
+
   const userStore = useUserStore();
   const { title, description, images } = sampleForm;
 

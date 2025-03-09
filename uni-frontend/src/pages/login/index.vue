@@ -39,6 +39,17 @@ const form = reactive({
 const userStore = useUserStore();
 
 const handleLogin = async () => {
+  // 新增验证逻辑
+  if (!form.username?.trim()) {
+    uni.showToast({ title: "用户名不能为空", icon: "none" });
+    return;
+  }
+
+  if (!form.password) {
+    uni.showToast({ title: "密码不能为空", icon: "none" });
+    return;
+  }
+  
   try {
     const { data } = await loginApi(form);
     console.log("data", data);
